@@ -251,7 +251,7 @@ function injectPPSDK(clientId){
   _ppLoaded=false;
   const ppCurr=PP_UNSUPPORTED.includes(selCurr.code)?'USD':selCurr.code;
   const s=document.createElement('script');s.id='pp-sdk';
-  s.src=`https://www.paypal.com/sdk/js?client-id=${clientId}&currency=${ppCurr}&intent=capture&components=buttons&disable-funding=credit,card`;
+  s.src=`https://www.paypal.com/sdk/js?client-id=${clientId}&currency=${ppCurr}&intent=capture&components=buttons`;
   s.onload=()=>{_ppLoaded=true;renderPayPalButtons();};
   s.onerror=()=>{
     if(g('pp-loading'))g('pp-loading').innerHTML='<span style="color:var(--err);font-size:12px">PayPal SDK failed to load. Check your Client ID.</span>';
